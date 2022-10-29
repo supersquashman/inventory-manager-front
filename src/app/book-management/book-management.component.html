@@ -1,3 +1,39 @@
 <router-outlet>
-<p>book-management works!</p>
+<div>
+    <tabset>
+        <tab heading="Bookshelf" id="tab1">
+        <accordion id="bookshelf-div">
+            <div *ngFor="let abook of this.bookshelf; index as i;">
+            <accordion-group heading="{{abook.title}}">
+                <div>UPC: {{abook.upc}}</div>
+                <div>Page: {{abook.current_page}} of {{abook.all_pages}}</div>
+                <div>Notes: <div class="border">{{abook.notes}}</div></div>
+            </accordion-group>
+            </div>
+        </accordion>
+        </tab>
+        <tab heading="Loaned">
+            <accordion id="loaned-div">
+                <div *ngFor="let abook of this.bookshelf; index as i;">
+                <accordion-group heading="{{abook.title}}">
+                    <div>UPC: {{abook.upc}}</div>
+                    <div>Page: {{abook.current_page}} of {{abook.all_pages}}</div>
+                    <div>Notes: <div class="border">{{abook.notes}}</div></div>
+                </accordion-group>
+                </div>
+            </accordion>
+            </tab>
+        <tab heading="Wishlist">
+            <accordion id="wishlist-div">
+                <div *ngFor="let abook of this.bookshelf; index as i;">
+                <accordion-group heading="{{abook.title}}">
+                    <div>UPC: {{abook.upc}}</div>
+                    <div>Page: {{abook.current_page}} of {{abook.all_pages}}</div>
+                    <div>Notes: <div class="border">{{abook.notes}}</div></div>
+                </accordion-group>
+                </div>
+            </accordion>
+            </tab>
+    </tabset>
+</div>
 </router-outlet>
