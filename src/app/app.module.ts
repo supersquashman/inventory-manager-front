@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookManagementComponent } from './book-management/book-management.component';
 import { AlcoholManagementComponent } from './alcohol-management/alcohol-management.component';
+
+import { HttpClientModule }    from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+
 import { NavigatorComponent } from './navigator/navigator.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TabsModule} from 'ngx-bootstrap/tabs'
 import {AccordionModule} from 'ngx-bootstrap/accordion'
+import { BackendServiceService } from './backend-service.service';
 
 @NgModule({
   declarations: [
@@ -25,10 +29,11 @@ import {AccordionModule} from 'ngx-bootstrap/accordion'
     ReactiveFormsModule,
     TabsModule,
     AccordionModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: NavigatorComponent},
       {path: 'books', component: BookManagementComponent},
-      {path: "alcohol", component: AlcoholManagementComponent}
+      {path: 'alcohol', component: AlcoholManagementComponent}
     ]),
     BrowserAnimationsModule
   ],
