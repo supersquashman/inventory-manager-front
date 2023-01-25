@@ -30,7 +30,7 @@ export class BookManagementComponent implements OnInit {
     this.bookshelf = []
     this.testBlock = ["test"]
     this.exampleTest="A test message for beeping"
-     this.updateBookshelf();
+    this.updateBookshelf();
   }
 
   refresh(): void{
@@ -41,6 +41,14 @@ export class BookManagementComponent implements OnInit {
 		this.backendService.potato().subscribe((example: any) => this.testResponse = example);
     console.log(this.testResponse);
 	}
+
+  addBook(){
+    this.backendService.addBook(this.userID);
+  }
+
+  removeBook(){
+    this.backendService.removeBook(this.userID)
+  }
 
   async updateBookshelf(){
     this.backendService.getBooks(this.userID).subscribe(data => {

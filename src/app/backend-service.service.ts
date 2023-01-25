@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { title } from 'process';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,20 @@ export class BackendServiceService {
 
   getBooks(userID: any) : Observable<any[]>{
     return this.httpClient.get<any[]>('http://127.0.0.1:5002/bookable/'+userID+'/');
+  }
+
+  addBook(userID: any) {
+    let newBook = {'title':"A New Book", 'upc':"0914803",'all_pages':2392,'current_page':291,'notes':"Oh boy here I go readin again"}
+    //let params=new HttpParams().set("bookData",newBook);
+    let params = new HttpParams().set("title",'A New Book').set('upc','0914803').set('all_pages',2392)
+    params = params.set("current_page",291).set("notes",'Oh boy here I go readin again').set('userID',userID).set('action',"add")
+    this.httpClient.post<any>(this.pythonURL+'/bookable/'+userID+'/',null,{params}).subscribe();
+  }
+
+  removeBook(userID: any){
+    let params = new HttpParams().set("title",'A New Book').set('upc','0914803').set('all_pages',2392)
+    params = params.set("current_page",291).set("notes",'Oh boy here I go readin again').set('userID',userID).set('action',"remove")
+    this.httpClient.post<any>(this.pythonURL+'/bookable/'+userID+'/',null,{params}).subscribe();
   }
 
   bookable(userID : any): any {
