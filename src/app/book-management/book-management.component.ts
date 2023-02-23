@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BackendServiceService } from '../backend-service.service';
 import {Book} from '../ObjectInterfaces/Book'
+import { AddBookModalComponent } from './add-book-modal/add-book-modal.component';
 
 
 @Component({
@@ -22,7 +24,9 @@ export class BookManagementComponent implements OnInit {
   exampleBook : Book;
   userID = 1;
 
-  constructor(private route: ActivatedRoute, private backendService : BackendServiceService) { }
+  modalRef: AddBookModalComponent | null = null;
+
+  constructor(private route: ActivatedRoute, private backendService : BackendServiceService, private modalService: NgbModal) { }
 
 
   ngOnInit(): void {
@@ -43,7 +47,8 @@ export class BookManagementComponent implements OnInit {
 	}
 
   addBook(){
-    this.backendService.addBook(this.userID);
+    //this.backendService.addBook(this.userID);
+    this.modalService.open(AddBookModalComponent)
   }
 
   removeBook(){

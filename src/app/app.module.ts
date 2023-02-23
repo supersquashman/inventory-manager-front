@@ -15,13 +15,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TabsModule} from 'ngx-bootstrap/tabs'
 import {AccordionModule} from 'ngx-bootstrap/accordion'
 import { BackendServiceService } from './backend-service.service';
+import { AddBookModalComponent } from './book-management/add-book-modal/add-book-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookManagementComponent,
     AlcoholManagementComponent,
-    NavigatorComponent
+    NavigatorComponent,
+    AddBookModalComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { BackendServiceService } from './backend-service.service';
       {path: 'books', component: BookManagementComponent},
       {path: 'alcohol', component: AlcoholManagementComponent}
     ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],
