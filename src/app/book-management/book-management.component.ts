@@ -55,6 +55,25 @@ export class BookManagementComponent implements OnInit {
     this.backendService.removeBook(this.userID)
   }
 
+  /*open(content:any) {
+    this.modalService.open(content, this.modalOptions).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }*/
+  
+
   async updateBookshelf(){
     this.backendService.getBooks(this.userID).subscribe(data => {
       for (let oneBook of data)

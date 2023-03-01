@@ -40,6 +40,10 @@ export class BackendServiceService {
     this.httpClient.post<any>(this.pythonURL+'/bookable/'+userID+'/',null,{params}).subscribe();
   }
 
+  lookupUPC(upc:any){
+    return this.httpClient.get('https://www.brocade.io/api/items/'+upc)
+  }
+
   bookable(userID : any): any {
     return this.httpClient.get<JSON>( this.pythonURL+"/bookable/"+userID+"/");
   }
