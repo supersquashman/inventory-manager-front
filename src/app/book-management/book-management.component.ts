@@ -30,7 +30,6 @@ export class BookManagementComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //this.bookshelf = [{title:"Test 1 Book",upc:"0129570239",all_pages:249,current_page:12,notes:"I had some feelings while eating the chips?"}];
     this.bookshelf = []
     this.testBlock = ["test"]
     this.exampleTest="A test message for beeping"
@@ -47,38 +46,27 @@ export class BookManagementComponent implements OnInit {
 	}
 
   addBook(){
-    //this.backendService.addBook(this.userID);
     this.modalService.open(AddBookModalComponent)
   }
 
-  removeBook(){
-    this.backendService.removeBook(this.userID)
+  removeBook(byeBook:Book){
+    let params={}
+    this.backendService.removeBook(this.userID, byeBook.doc_id)
   }
 
-  /*open(content:any) {
-    this.modalService.open(content, this.modalOptions).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+  editBook(selectedBook:Book){
+    let params={}
+    let editWindow = this.modalService.open(AddBookModalComponent)
+    editWindow.componentInstance.setBookData(selectedBook)
+    this.backendService.updateBook(this.userID, params) //upc and title?
+    //this.modalService.open(EditBookModalComponent)
   }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
-  }*/
-  
 
   async updateBookshelf(){
     this.backendService.getBooks(this.userID).subscribe(data => {
+      console.log(data)
       for (let oneBook of data)
       {
-        console.log(oneBook.book)
         this.bookshelf.push(oneBook.book)
       }
     })

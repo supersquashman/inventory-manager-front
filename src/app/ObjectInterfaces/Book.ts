@@ -4,4 +4,6 @@ export interface Book{
     all_pages: number;
     current_page: number;
     notes: string;
+    author: string;
+    doc_id: number;
 }

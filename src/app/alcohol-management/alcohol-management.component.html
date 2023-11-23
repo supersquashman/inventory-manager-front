@@ -1,1 +1,40 @@
-<p>alcohol-management works!</p>
+<router-outlet>
+    <div>
+        <tabset>
+            <tab heading="Liquor Cabinet" id="tab1">
+            <accordion id="alcoholcabinet-div">
+                <div *ngFor="let bottle of liquorCabinet; index as i;">
+                <accordion-group heading="{{bottle.type}}">
+                    <accordion-group heading="{{bottle.name}}">
+                        <div>UPC: {{bottle.upc}}</div> 
+                        <div>Stocked?: {{bottle.stocked}}</div>
+                        <div>Needs restock?: {{bottle.restock}}</div>
+                        <div>Notes: <div class="border">{{bottle.notes}}</div></div>
+                        <button class="btn btn-danger position-relative m-2 p-3" (click)="removeAlcohol(bottle)">- Remove Alcohol</button>
+                    </accordion-group>
+                </accordion-group>
+                </div>
+            </accordion>
+            </tab>
+            <tab heading="Wishlist">
+                <accordion id="wishlist-div">
+                    <div *ngFor="let bottle of wishlist; index as i;">
+                        <accordion-group heading="{{bottle.name}}">
+                            <div>UPC: {{bottle.upc}}</div> 
+                            <div>Stocked?: {{bottle.stocked}}</div>
+                            <div>Needs restock?: {{bottle.restock}}</div>
+                            <div>Notes: <div class="border">{{bottle.notes}}</div></div>
+                        </accordion-group>
+                    </div>
+                </accordion>
+            </tab>
+        </tabset>
+        {{this.exampleTest}} : {{testResponse}}<br>
+    </div>
+    <div class="position-absolute bottom-0 end-0">
+        <!--button class="btn btn-info position-relative m-5 p-3" (click)="addBook()">+ New Book</button--> 
+        <button class="btn btn-info position-relative m-5 p-3" (click)="addAlcohol()">+ Add Alcohol</button> 
+    </div>
+    
+    <footer></footer>
+    </router-outlet>

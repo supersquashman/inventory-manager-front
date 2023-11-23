@@ -1,0 +1,7 @@
+{
+    "/lookup": {
+      "target": "'https://www.brocade.io/api/items'",
+      "secure": true,
+      "changeOrigin": true
+    }
+  }

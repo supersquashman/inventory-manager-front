@@ -5,10 +5,15 @@
         <accordion id="bookshelf-div">
             <div *ngFor="let abook of bookshelf; index as i;">
             <accordion-group heading="{{abook.title}}">
-                <div>UPC: {{abook.upc}}</div> 
+                <div>UPC: {{abook.upc}}</div>
                 <div>Page: {{abook.current_page}} of {{abook.all_pages}}</div>
                 <div>Notes: <div class="border">{{abook.notes}}</div></div>
-            </accordion-group>
+                <div>Document ID: {{abook.doc_id}}</div>
+                <div>
+                    <button class="btn btn-danger position-relative m-1 p-2" (click)="removeBook(abook)">Remove</button>
+                    <button class="btn btn-warning position-relative m-1 p-2" (click)="editBook(abook)">Edit</button>
+                </div> 
+            </accordion-group> 
             </div>
         </accordion>
         </tab>
@@ -30,6 +35,10 @@
                     <div>UPC: {{abook.upc}}</div>
                     <div>Page: {{abook.current_page}} of {{abook.all_pages}}</div>
                     <div>Notes: <div class="border">{{abook.notes}}</div></div>
+                    <div>
+                        <button class="btn btn-danger position-relative m-1 p-2" (click)="removeBook(abook)">Remove</button>
+                        <button class="btn btn-warning position-relative m-1 p-2" (click)="editBook(abook)">Edit</button>
+                    </div> 
                 </accordion-group>
                 </div>
             </accordion>
@@ -38,8 +47,6 @@
     {{this.exampleTest}} : {{testResponse}}<br>
 </div>
 <div class="position-absolute bottom-0 end-0">
-    <button class="btn btn-danger position-relative m-2 p-3" (click)="removeBook()">- Remove Book</button>
-    <!--button class="btn btn-info position-relative m-5 p-3" (click)="addBook()">+ New Book</button--> 
     <button class="btn btn-info position-relative m-5 p-3" (click)="addBook()">+ New Book</button> 
 </div>
 

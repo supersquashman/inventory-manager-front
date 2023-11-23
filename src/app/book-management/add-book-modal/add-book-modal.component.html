@@ -8,20 +8,23 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="bkTitle" class="col-sm-2 control-label" >Title:</label>
-            <input name="bkTitle" [(ngModel)]="bookTitle" class="{margin:20 20 20 20}" placeholder=""><br>
+            <input name="bkTitle" [(ngModel)]="bookTitle" class="mb-2 col-sm-5" placeholder=""><br>
 
             <label for="bkAuthor" class="col-sm-2 control-label" placeholder="">Author: </label>
-            <input name="bkAuthor" [(ngModel)]="bookAuthor" class="col-sm-5"><br>
+            <input name="bkAuthor" [(ngModel)]="bookAuthor" class="col-sm-5 mb-2"><br>
 
             <label for="bkUPC" class="col-sm-2 control-label">UPC: </label>
-            <input name="bkUPC" [(ngModel)]="bookUPC" class="col-sm-5"><br>
+            <input name="bkUPC" [(ngModel)]="bookUPC" class="col-sm-5 mb-2"><br>
 
             <label for="bkPages" class="col-sm-2 control-label">Pages: </label>
-            <input name="bkPages" [(ngModel)]="bookPages" class="col-sm-4"><br>
+            <input name="bkPages" [(ngModel)]="bookPages" class="col-sm-4 mb-2" ><br>
+
+            <label for="bkCurrentPage" class="col-sm-2 control-label">Current Page: </label>
+            <input name="bkCurrentPage" [(ngModel)]="bookCurrentPage" class="col-sm-4 mb-2" ><br>
 
             <label for="bkNotes" class="col-sm-2 control-label">Notes: </label>
-            <div class="col-sm-6">
-              <textarea class="form-control" id="bkNotes" [(ngModel)]="bookNotes" placeholder=""></textarea>
+            <div class="col-sm-7">
+              <textarea class="form-control" id="bkNotes" [(ngModel)]="bookNotes" class="col-sm-30" placeholder=""></textarea>
             </div>
         </div>
         <div class="modal-footer">
